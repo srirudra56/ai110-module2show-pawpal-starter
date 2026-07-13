@@ -18,6 +18,7 @@
 
 - Did your design change during implementation?
 - If yes, describe at least one change and why you made it.
+After reviewing the class skeleton, I realized there was no pet name for the particular task and time so I added an extra string for that in the task class. I also updated the UML diagram.
 
 ---
 
@@ -27,12 +28,16 @@
 
 - What constraints does your scheduler consider (for example: time, priority, preferences)?
 - How did you decide which constraints mattered most?
+My scheduler considers the task date, scheduled time, pet name, completion status, and recurrence frequency. It sorts tasks by time so the earliest tasks appear first, filters tasks by pet or completion status, and checks whether two tasks are scheduled for the exact same date and time. It also creates the next occurrence for daily and weekly recurring tasks.
+
+I decided that date and time were the most important constraints because pet care tasks need to happen at the correct time. Completion status was also important because it helps the owner distinguish finished tasks from tasks that still need attention. Pet name matters because an owner may manage multiple pets, while recurrence frequency helps automate repeated care activities.
 
 **b. Tradeoffs**
 
 - Describe one tradeoff your scheduler makes.
 - Why is that tradeoff reasonable for this scenario?
 
+One tradeoff in my scheduler is that conflict detection only checks whether two tasks have the exact same date and time. This keeps the algorithm simple and easy to understand, but it does not detect tasks whose time ranges overlap. For example, a 30-minute walk at 2:00 PM and a feeding task at 2:15 PM would not be identified as a conflict. I chose the simpler approach because the current Task class does not store task duration, and exact-time matching is enough for the basic version of the app.
 ---
 
 ## 3. AI Collaboration

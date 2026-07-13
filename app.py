@@ -1,5 +1,21 @@
 import streamlit as st
 
+from pawpal_system import Owner, Pet, Task, Scheduler
+
+from datetime import date, time
+
+if "owner" not in st.session_state:
+    st.session_state.owner = Owner(
+        name="Default Owner",
+        email="owner@example.com"
+    )
+
+if "scheduler" not in st.session_state:
+    st.session_state.scheduler = Scheduler()
+
+owner = st.session_state.owner
+scheduler = st.session_state.scheduler
+
 st.set_page_config(page_title="PawPal+", page_icon="🐾", layout="centered")
 
 st.title("🐾 PawPal+")
@@ -58,9 +74,17 @@ with col3:
     priority = st.selectbox("Priority", ["low", "medium", "high"], index=2)
 
 if st.button("Add task"):
-    st.session_state.tasks.append(
-        {"title": task_title, "duration_minutes": int(duration), "priority": priority}
+    new_task = Task(
+        task_name=task_title,
+        task_type=priority,
+        scheduled_date=date.today(),
+        scheduled_time=time(9, 0),
+        pet_name=pet_name
     )
+
+    scheduler.schedule_task(new_task)
+
+    st.success("Task added!")
 
 if st.session_state.tasks:
     st.write("Current tasks:")
@@ -74,15 +98,15 @@ st.subheader("Build Schedule")
 st.caption("This button should call your scheduling logic once you implement it.")
 
 if st.button("Generate schedule"):
-    st.warning(
-        "Not implemented yet. Next step: create your scheduling logic (classes/functions) and call it here."
-    )
-    st.markdown(
-        """
-Suggested approach:
-1. Design your UML (draft).
-2. Create class stubs (no logic).
-3. Implement scheduling behavior.
-4. Connect your scheduler here and display results.
-"""
-    )
+    todays_tasks = scheduler.view_todays_tasks()
+
+    if todays_tasks:
+        st.success("Today's Schedule")
+
+        for task in todays_tasks:
+            st.write(
+                f"{task.scheduled_time.strftime('%I:%M %p')} - "
+                f"{task.pet_name}: {task.task_name}"
+            )
+    else:
+        st.info("No tasks scheduled for today.")

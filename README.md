@@ -46,6 +46,16 @@ pip install -r requirements.txt
 
 Paste a sample of your app's CLI or Streamlit output here so a reader can see what a generated plan looks like:
 
+## Sample Output
+
+```text
+Today's Schedule
+-----------------
+08:00 AM | Buddy | Morning Walk (Walk)
+08:30 AM | Buddy | Feed Breakfast (Feeding)
+06:00 PM | Luna | Brush Fur (Grooming)
+```
+
 ```
 # e.g.:
 # Daily plan for Biscuit (Golden Retriever):
@@ -72,14 +82,13 @@ Sample test output:
 
 ## 📐 Smarter Scheduling
 
-> Fill in once you've implemented scheduling logic.
 
 | Feature | Method(s) | Notes |
 |---------|-----------|-------|
-| Task sorting | | e.g., by priority, duration |
-| Filtering | | e.g., skip tasks if time runs out |
-| Conflict handling | | e.g., overlapping time slots |
-| Recurring tasks | | e.g., daily vs. weekly |
+| Task sorting | Scheduler.sort_by_time() | sorts tasks by earliest to latest using each task's scheduled time |
+| Filtering | Scheduler.filter_by_pet() and Scheduler.filter_by_status() | Filters tasks by pet names or by completed/incomplete status |
+| Conflict handling | Scheduler.check_conflict() and Scheduler.schedule_task() | Checks for tasks within the same date and time and returns a warning message |
+| Recurring tasks | Task.mark_complete() | Creates the next occurence for daily tasks after 1 day and weekly tasks after 7 days |
 
 ## 📸 Demo Walkthrough
 
