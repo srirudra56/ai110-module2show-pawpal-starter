@@ -118,12 +118,65 @@ test/test_pawpal.py .....                                                       
 
 ## 📸 Demo Walkthrough
 
-Describe your app in numbered steps so a reader can follow along without watching a video:
+1. Add and manage multiple pets.
+2. Create and schedule pet care tasks.
+3. Sort tasks by scheduled time using Scheduler.sort_by_time().
+4. Filter tasks by pet name using Scheduler.filter_by_pet().
+5. Filter tasks by completion status using Scheduler.filter_by_status().
+6. Detect scheduling conflicts and display warning messages using Scheduler.check_conflict().
+7. Support recurring daily and weekly tasks through Task.mark_complete().
+8. View today's scheduled tasks in chronological order.
 
-1. <!-- Describe this step -->
-2. <!-- Describe this step -->
-3. <!-- Describe this step -->
-4. <!-- Describe this step -->
-5. <!-- Add more steps as needed -->
+The PawPal+ interface allows users to:
+
+Enter owner and pet information.
+Create pet care tasks.
+Generate and view a daily schedule.
+Receive warnings when scheduling conflicting tasks.
+View tasks in chronological order.
+
+Example Workflow
+-Enter the owner's and pet's information.
+-Create several pet care tasks.
+-Schedule the tasks.
+-Generate today's schedule.
+-View the tasks sorted by time.
+-If two tasks are scheduled for the same date and time, the scheduler displays a conflict warning.
+-Mark recurring tasks as complete to automatically generate the next daily or weekly occurrence.
+
+Scheduler Behaviors:
+-Automatically sorts tasks from earliest to latest.
+-Filters tasks by pet and completion status.
+-Detects scheduling conflicts at the same date and time.
+-Generates recurring daily and weekly tasks automatically.
+-Displays today's scheduled tasks.
+
+Tasks Sorted by Time
+--------------------
+08:00 AM | Luna | Breakfast
+10:00 AM | Buddy | Morning Walk
+02:00 PM | Buddy | Feed Buddy
+02:00 PM | Luna | Brush Luna
+06:00 PM | Buddy | Evening Walk
+06:00 PM | Buddy | Evening Walk
+
+Buddy's Tasks
+-------------
+06:00 PM | Evening Walk
+10:00 AM | Morning Walk
+02:00 PM | Feed Buddy
+06:00 PM | Evening Walk
+
+Incomplete Tasks
+----------------
+Buddy | Morning Walk
+Buddy | Feed Buddy
+Luna | Brush Luna
+Buddy | Evening Walk
+
+Completed Tasks
+---------------
+Buddy | Evening Walk
+Luna | Breakfast
 
 **Screenshot or video** *(optional)*: <!-- Insert a screenshot or link to a demo video here -->

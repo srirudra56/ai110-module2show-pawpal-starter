@@ -47,11 +47,13 @@ One tradeoff in my scheduler is that conflict detection only checks whether two 
 - How did you use AI tools during this project (for example: design brainstorming, debugging, refactoring)?
 - What kinds of prompts or questions were most helpful?
 
+I used AI throughout the project to help brainstorm the initial system design, create a UML diagram, generate class skeletons, debug Python errors, and implement algorithms such as sorting, filtering, recurring tasks, and conflict detection. AI also helped me write automated tests, improve my README, and explain Python concepts that I did not fully understand. The most helpful prompts were specific questions such as "How should the Scheduler retrieve tasks?" or "Why is this test failing?" because they provided focused explanations instead of large amounts of unnecessary code.
 **b. Judgment and verification**
 
 - Describe one moment where you did not accept an AI suggestion as-is.
 - How did you evaluate or verify what the AI suggested?
 
+One example where I did not accept an AI suggestion as-is was the recurring task implementation. AI suggested moving the recurring logic into the Scheduler class, but I chose to keep the recurring behavior inside the Task.mark_complete() method because it fit my class design better and kept responsibilities clear. I verified the implementation by running main.py and my automated tests to confirm that recurring tasks were created correctly.
 ---
 
 ## 4. Testing and Verification
@@ -60,12 +62,13 @@ One tradeoff in my scheduler is that conflict detection only checks whether two 
 
 - What behaviors did you test?
 - Why were these tests important?
+I tested several important behaviors, including marking tasks as complete, adding tasks to pets, sorting tasks by scheduled time, filtering tasks by pet and completion status, generating recurring daily tasks, and detecting scheduling conflicts. These tests were important because they verified the core functionality of the scheduler and ensured that the main features worked as expected
 
 **b. Confidence**
 
 - How confident are you that your scheduler works correctly?
 - What edge cases would you test next if you had more time?
-
+I am highly confident that my scheduler works correctly because the automated tests passed and the demo program produced the expected results. If I had more time, I would test additional edge cases such as overlapping task durations, larger numbers of pets and tasks, invalid user input, and more complex recurring schedules.
 ---
 
 ## 5. Reflection
@@ -74,10 +77,13 @@ One tradeoff in my scheduler is that conflict detection only checks whether two 
 
 - What part of this project are you most satisfied with?
 
+The part I am most satisfied with is building the scheduler logic. I successfully implemented sorting, filtering, recurring tasks, and conflict detection while keeping the classes organized and easy to understand.
 **b. What you would improve**
 
 - If you had another iteration, what would you improve or redesign?
+If I had another iteration, I would improve the Streamlit interface by allowing users to edit or delete tasks, choose custom recurring schedules, and display the schedule with more interactive filtering and searching options.
 
 **c. Key takeaway**
 
 - What is one important thing you learned about designing systems or working with AI on this project?
+One important thing I learned is that AI is most useful as a development assistant rather than a replacement for my own decisions. I still needed to understand the code, evaluate AI suggestions, and choose the implementation that best fit my project's design.

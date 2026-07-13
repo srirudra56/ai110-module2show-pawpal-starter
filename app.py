@@ -82,9 +82,12 @@ if st.button("Add task"):
         pet_name=pet_name
     )
 
-    scheduler.schedule_task(new_task)
+    warning = scheduler.schedule_task(new_task)
 
-    st.success("Task added!")
+    if warning:
+       st.warning(warning)
+    else:
+      st.success("Task added!")
 
 if st.session_state.tasks:
     st.write("Current tasks:")
