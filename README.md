@@ -76,9 +76,35 @@ pytest --cov
 
 Sample test output:
 
+Used:
+
+python3 -m pytest
+
+The tests verify:
+
+-marking a task as complete
+-adding a task to a pet
+-sorting tasks in chronological order
+-creating the next occurrence of a daily recurring task
+-detecting scheduling conflicts
+
+Confidence:
+
+5 stars
+I have a high level of confidence in PawPal+ because the automated tests verify the system's main scheduling behaviors and all tests pass successfully.
+
 ```
 # Paste your pytest output here
 ```
+========================================= test session starts =========================================
+platform darwin -- Python 3.12.5, pytest-9.0.3, pluggy-1.6.0
+rootdir: /Users/srirudrapatlori/ai110-module2show-pawpal-starter
+plugins: anyio-4.13.0
+collected 5 items                                                                                     
+
+test/test_pawpal.py .....                                                                       [100%]
+
+========================================== 5 passed in 0.02s ==========================================
 
 ## 📐 Smarter Scheduling
 
